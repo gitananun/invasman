@@ -9,11 +9,6 @@ const sequelize = new Sequelize(getEnv('DB_NAME'), getEnv('DB_USER'), getEnv('DB
   host: getEnv('DB_HOST'),
   port: getEnv('DB_PORT'),
   dialect: 'mysql',
-  dialectOptions: {
-    ssl: {
-      rejectUnauthorized: true,
-    },
-  },
 });
 
 const Role = sequelize.define('role', {
