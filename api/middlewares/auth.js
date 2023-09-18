@@ -24,9 +24,10 @@ exports.verifySignin = (req, res, next) => {
 
 exports.verifyToken = (req, res, next) => {
   const bearer = req.headers['authorization'];
-  let token = bearer.split(' ')[1];
 
   if (!bearer) return sendResStatus(res, 403, 'No token provided');
+
+  let token = bearer.split(' ')[1];
 
   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
     if (err) return sendResStatus(res, 401);
