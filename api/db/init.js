@@ -1,7 +1,9 @@
 const mysql = require('mysql2');
 const { getEnv } = require('../utils/env');
 
-const connectionInit = async () =>
+const connectionInit = async () => {
+  console.log('Starting connection...');
+
   new Promise((resolve, reject) => {
     const connection = mysql.createConnection({
       host: getEnv('DB_HOST'),
@@ -17,5 +19,6 @@ const connectionInit = async () =>
 
     connection.end;
   });
+};
 
 module.exports = connectionInit;

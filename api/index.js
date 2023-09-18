@@ -18,6 +18,7 @@ configureRouter(app);
 
 const port = getEnv('PORT');
 
+console.log('PORT', port);
 app.listen(port, () => {
   console.info(`Listening to ${port}`);
 
