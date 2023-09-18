@@ -10,6 +10,9 @@ const connectionInit = async () => {
       user: getEnv('DB_USER'),
       password: getEnv('DB_PWD'),
       port: getEnv('DB_PORT'),
+      ssl: {
+        rejectUnauthorized: false,
+      },
     });
 
     connection.query(`CREATE DATABASE IF NOT EXISTS ${getEnv('DB_NAME')}`, (err, results) => {

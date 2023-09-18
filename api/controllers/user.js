@@ -11,5 +11,5 @@ exports.self = (req, res) => {
 
       sendResBody(res, 200, user);
     })
-    .catch((_) => sendResStatus(res, 500));
+    .catch((err) => sendResStatus(res, 500, err));
 };
