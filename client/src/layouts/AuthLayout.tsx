@@ -12,7 +12,7 @@ export const AuthLayout = (props: IChildrenProps) => {
             <div className="card-title d-flex flex-column align-items-center text-center">
               <img src={SourceLogo} alt="Invasman" width={50} />
               <h5 className="my-1">INVASMAN</h5>
-              <small className="text-muted">powered with TM</small>
+              <small className="text-muted">powered by TM</small>
 
               <h4 className="title my-3">Welcome to Inventorization Asset Management</h4>
               <h6 className="text-secondary font-weight-light">Fill your credentials below</h6>
