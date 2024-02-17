@@ -90,10 +90,12 @@ const AdminUsersPage = () => {
       email,
       password,
       role,
-    }).then((_) => {
-      showSuccessToast("User created successfully");
-      onToggleCreateMode();
-    });
+    })
+      .then((_) => {
+        showSuccessToast("User created successfully");
+        onToggleCreateMode();
+      })
+      .catch(() => {});
   };
 
   const onUpdateUserSubmit = () => {
@@ -108,10 +110,12 @@ const AdminUsersPage = () => {
       name,
       lastname,
       email,
-    }).then((_) => {
-      showSuccessToast("User updated successfully");
-      onToggleEditMode(editableId);
-    });
+    })
+      .then((_) => {
+        showSuccessToast("User updated successfully");
+        onToggleEditMode(editableId);
+      })
+      .catch(() => {});
   };
 
   const onBulkDelete = () => {

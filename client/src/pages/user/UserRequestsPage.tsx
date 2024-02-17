@@ -46,7 +46,9 @@ const UserRequestsPage = () => {
     const reason: string = newReasonRef.current?.value ?? "";
     if (!reason) return;
 
-    dispatchCreateRequestAction({ reason }).then(() => showSuccessToast("Request created successfully!"));
+    dispatchCreateRequestAction({ reason })
+      .then(() => showSuccessToast("Request created successfully!"))
+      .catch(() => {});
     onToggleCreateMode();
   };
 

@@ -21,10 +21,12 @@ export const AccountPageUpdatePassword = () => {
       dispatchAuthUpdatePasswordAction({
         oldPassword: oldPassword.current!.value,
         password: password.current!.value,
-      }).then(() => {
-        showSuccessToast("Password updated successfully, please login again");
-        navigate("/");
-      });
+      })
+        .then(() => {
+          showSuccessToast("Password updated successfully, please login again");
+          navigate("/");
+        })
+        .catch(() => {});
     }
   };
 

@@ -49,7 +49,9 @@ const AdminTypesPage = () => {
 
     if (!name) return showErrorToast({ type: "required" });
 
-    dispatchCreateTypeAction({ name, description }).then(() => showSuccessToast("Asset created successfully!"));
+    dispatchCreateTypeAction({ name, description })
+      .then(() => showSuccessToast("Asset created successfully!"))
+      .catch(() => {});
     onToggleCreateMode();
   };
 

@@ -75,13 +75,17 @@ const AdminAssetsPage = () => {
     if (numCount < 1) return showErrorToast({ type: "invalid" });
 
     if (numCount === 1)
-      dispatchCreateAssetAction({ name, typeId: type }).then(() => showSuccessToast("Asset created successfully!"));
+      dispatchCreateAssetAction({ name, typeId: type })
+        .then(() => showSuccessToast("Asset created successfully!"))
+        .catch(() => {});
     else
-      dispatchCreateAssetsAction({ name, typeId: type, count: numCount }).then(() => {
-        showSuccessToast("Assets created successfully!");
+      dispatchCreateAssetsAction({ name, typeId: type, count: numCount })
+        .then(() => {
+          showSuccessToast("Assets created successfully!");
 
-        dispatchAllAssetsAction();
-      });
+          dispatchAllAssetsAction();
+        })
+        .catch(() => {});
 
     onToggleCreateMode();
   };
@@ -89,13 +93,15 @@ const AdminAssetsPage = () => {
   const onAssignSubmit = () => {
     if (!user) return showErrorToast({ type: "required" });
 
-    dispatchBulkAssignAssetsAction({ userId: user, ids: selected }).then(() => {
-      showSuccessToast("Assets assigned successfully!");
-      onToggleAssignMode();
-      setSelected([]);
+    dispatchBulkAssignAssetsAction({ userId: user, ids: selected })
+      .then(() => {
+        showSuccessToast("Assets assigned successfully!");
+        onToggleAssignMode();
+        setSelected([]);
 
-      dispatchAllAssetsAction();
-    });
+        dispatchAllAssetsAction();
+      })
+      .catch(() => {});
   };
 
   const onSelectType = (id: number | string) => setType(+id);
