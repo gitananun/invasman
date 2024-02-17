@@ -26,6 +26,7 @@ const SigninPage = () => {
 
     dispatchAuthLoginAction({ email, password })
       .then(() => showSuccessToast("Welcome to Platform!"))
+      .catch(() => {})
       .finally(() => setIsLoading(false));
   };
 

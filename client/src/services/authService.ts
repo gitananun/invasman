@@ -20,8 +20,9 @@ export const authLogin = async (args: ILoginArgs) =>
   axiosInstance()
     .post("/auth/signin", args)
     .then((res): string => {
-      const { token } = res.data;
+      if (!res) throw new Error();
 
+      const { token } = res.data;
       if (!token) throw new Error();
 
       return token;

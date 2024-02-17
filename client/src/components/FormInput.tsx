@@ -8,6 +8,7 @@ interface IProps extends React.HTMLAttributes<HTMLInputElement> {
   label?: string;
   type?: string;
   required?: boolean;
+  placeholder?: string;
   disabled?: boolean;
   validationMessage?: string;
   inputRef?: RefObject<HTMLInputElement>;

@@ -10,13 +10,18 @@ import { login, logout } from "./reducer";
 const { dispatch } = store;
 
 export const dispatchAuthLoginAction = async (args: ILoginArgs) => {
-  return authLogin(args).then(async (token) => {
-    setToken(token);
+  return authLogin(args)
+    .then(async (token) => {
+      setToken(token);
 
-    const payload: ILoginPayload = await authSelf();
+      const payload: ILoginPayload = await authSelf();
 
-    return dispatch(login(payload));
-  });
+      return dispatch(login(payload));
+    })
+    .catch((error) => {
+      removeToken();
+      throw error;
+    });
 };
 
 export const dispatchAutologinAction = async () => {
